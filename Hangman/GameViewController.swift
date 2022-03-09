@@ -8,12 +8,21 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    var wrongGuesses : Int = 0
+    let solution : [String] = ["HARRY", "S", "TRUMAN"]
 
+    @IBOutlet weak var hangmanImage: UIImageView!
     @IBOutlet var alphabet: [UILabel]!
+    @IBOutlet var firstWord: [UILabel]!
+    @IBOutlet var secondWord: [UILabel]!
+    @IBOutlet var thirdWord: [UILabel]!
+    var wordArray: [ [UILabel] ] = []
+    //[firstWord, secondWord, thirdWord]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //
+        wordArray = [firstWord, secondWord, thirdWord]
         setupLabelTap()
         print("hello")
 
@@ -41,11 +50,43 @@ class GameViewController: UIViewController {
     }
     
     func guess(_ letter: Character){
-        if letter == " "
+        var correct = false
+        if letter == " "{
             return
-        if
+        }
+        else {
+            for (index, word) in solution.enumerated(){
+                let test = word.locations(letter)
+                if test != []{
+                    correct = true
+                    for loc in test{
+                        wordArray[index][loc].text = String(letter)
+                    }
+                }
+            }
+        }
+        if correct == false{
+            wrongGuesses += 1
+            hangmanImage.image = UIImage(named: "Deadman(\(wrongGuesses))")
+            print(wrongGuesses)
+        }
+        if wrongGuesses == 7{
+            fail()
+        }
         
     }
+    func fail(){
+        print("here")
+        for (count, word) in solution.enumerated(){
+            for (index, letters) in word.enumerated(){
+                if(wordArray[count][index].text == "_"){
+                    wordArray[count][index].text = String(letters)
+                    sleep(1)
+                }
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

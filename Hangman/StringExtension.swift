@@ -19,4 +19,19 @@ extension String {
         }
         return self[indexPosition]
     }
+    func locations(_ letter: Character) -> [Int]{
+        var myLocs : [Int] = []
+        for (index, char) in self.enumerated(){
+            if(char == letter){
+                myLocs.append(index)
+            }
+        }
+        return myLocs
+    }
+}
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
 }
