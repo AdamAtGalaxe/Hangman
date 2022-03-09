@@ -81,7 +81,7 @@ class GameViewController: UIViewController {
             for (index, letters) in word.enumerated(){
                 if(wordArray[count][index].text == "_"){
                     wordArray[count][index].text = String(letters)
-                    sleep(1)
+                    //sleep(1)
                 }
             }
         }
