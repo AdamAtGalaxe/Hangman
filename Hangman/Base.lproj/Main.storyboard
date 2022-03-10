@@ -214,7 +214,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lGh-jt-Oap">
-                                <rect key="frame" x="29" y="375" width="356" height="205"/>
+                                <rect key="frame" x="29" y="406" width="356" height="205"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lGh-jt-Oap" secondAttribute="height" multiplier="356:205" id="Y9i-lp-f9Y"/>
                                     <constraint firstAttribute="width" constant="356" id="Zae-WW-IAW"/>
@@ -229,7 +229,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h0G-hf-2Cf" secondAttribute="trailing" constant="28.5" id="OLv-RG-4CT"/>
                             <constraint firstItem="h0G-hf-2Cf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Rsh-x5-pCA"/>
                             <constraint firstItem="lGh-jt-Oap" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="To2-21-G4g"/>
-                            <constraint firstItem="lGh-jt-Oap" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="331" id="VPF-4U-uac"/>
+                            <constraint firstItem="lGh-jt-Oap" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="362" id="VPF-4U-uac"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lGh-jt-Oap" secondAttribute="trailing" constant="29" id="aN2-Im-uHk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jCd-hC-Occ" secondAttribute="trailing" constant="48" id="oEV-j8-deK"/>
                             <constraint firstItem="jCd-hC-Occ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="x8e-qa-rf0"/>

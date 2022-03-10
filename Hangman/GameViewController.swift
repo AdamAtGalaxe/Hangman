@@ -9,8 +9,9 @@ import UIKit
 
 class GameViewController: UIViewController {
     var wrongGuesses : Int = 0
-    let solution : [String] = ["FUCK", "IT", "ALL"]
+    let solution = Solutions.select("usPresidents")
     var myTimer: Timer? = nil
+    var letterCount : Int = 0
     
     @IBOutlet weak var hangmanImage: UIImageView!
     @IBOutlet var alphabet: [UILabel]!
@@ -59,6 +60,7 @@ class GameViewController: UIViewController {
                 let test = word.locations(letter)
                 if test != []{
                     correct = true
+                    letterCount -= test.count
                     for loc in test{
                         wordArray[index][loc].text = String(letter)
                     }
@@ -78,10 +80,12 @@ class GameViewController: UIViewController {
             myTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(fail), userInfo: nil, repeats: true)
             //fail()
         }
+        if letterCount == 0{
+            win()
+        }
         
     }
     @objc func fail(){
-
         for (count, word) in solution.enumerated(){
             for (index, letters) in word.enumerated(){
                 if(wordArray[count][index].text == "_"){
@@ -93,6 +97,12 @@ class GameViewController: UIViewController {
         hangmanImage.image = UIImage(named: "loser")
         myTimer?.invalidate()
     }
+    func win(){
+        alphabet.forEach{
+            $0.removeFromSuperview()
+        }
+        hangmanImage.image = UIImage(named: "winner")
+    }
     func createHint(){
         for words in solution{
             let horizontalStack = UIStackView()
@@ -103,6 +113,7 @@ class GameViewController: UIViewController {
             horizontalStack.spacing = 30;
             var wordStack : [UILabel] = []
             for _ in words{
+                letterCount += 1
                 let label = UILabel()
                 label.text = "_"
                 label.font = label.font.withSize(40)
@@ -114,7 +125,36 @@ class GameViewController: UIViewController {
         }
 
     }
-    
+    func playAgain(){
+        let yes = UIButton()
+        yes.frame = CGRect(x: self.view.frame.size.width - 60, y: 60, width: 50, height: 50)
+        yes.backgroundColor = UIColor.green
+        yes.setTitle("Yes", for: .normal)
+        yes.addTarget(self, action: #selector(restart), for: .touchUpInside)
+        
+        let no = UIButton()
+        no.frame = CGRect(x: self.view.frame.size.width - 60, y: 60, width: 50, height: 50)
+        no.backgroundColor = UIColor.green
+        no.setTitle("No", for: .normal)
+        no.addTarget(self, action: #selector(quit), for: .touchUpInside)
+        
+        let horizontalStack = UIStackView()
+        horizontalStack.axis = .horizontal
+        horizontalStack.alignment = .fill
+        horizontalStack.distribution = .equalCentering;
+        horizontalStack.alignment = .center;
+        horizontalStack.spacing = 30;
+        horizontalStack.addArrangedSubview(yes)
+        horizontalStack.addArrangedSubview(no)
+
+        
+    }
+    @objc func restart(sender: UIButton!) {
+        print("Button tapped")
+    }
+    @objc func quit(sender: UIButton!) {
+        print("Button tapped")
+    }
     /*
     // MARK: - Navigation
 
