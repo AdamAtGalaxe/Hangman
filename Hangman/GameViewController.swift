@@ -9,25 +9,24 @@ import UIKit
 
 class GameViewController: UIViewController {
     var wrongGuesses : Int = 0
-    let solution : [String] = ["HARRY", "S", "TRUMAN"]
+    let solution : [String] = ["FUCK", "IT", "ALL"]
     var myTimer: Timer? = nil
     
     @IBOutlet weak var hangmanImage: UIImageView!
     @IBOutlet var alphabet: [UILabel]!
-    @IBOutlet var firstWord: [UILabel]!
-    @IBOutlet var secondWord: [UILabel]!
-    @IBOutlet var thirdWord: [UILabel]!
-    var wordArray: [ [UILabel] ] = []
-    //[firstWord, secondWord, thirdWord]
+    @IBOutlet weak var hintStack: UIStackView!
     
+
+    var wordArray: [ [UILabel] ] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
-        wordArray = [firstWord, secondWord, thirdWord]
+        createHint()
+
         setupLabelTap()
         print("hello")
-
-        // Do any additional setup after loading the view.
+        
+    // Do any additional setup after loading the view.
         
     }
     
@@ -72,13 +71,17 @@ class GameViewController: UIViewController {
             print(wrongGuesses)
         }
         if wrongGuesses == 7{
-            myTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fail), userInfo: nil, repeats: true)
+            alphabet.forEach{
+                $0.removeFromSuperview()
+            }
+            //hangmanImage.image = UIImage(named: "loser")
+            myTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(fail), userInfo: nil, repeats: true)
             //fail()
         }
         
     }
     @objc func fail(){
-        print("here")
+
         for (count, word) in solution.enumerated(){
             for (index, letters) in word.enumerated(){
                 if(wordArray[count][index].text == "_"){
@@ -87,9 +90,30 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        hangmanImage.image = UIImage(named: "loser")
         myTimer?.invalidate()
     }
+    func createHint(){
+        for words in solution{
+            let horizontalStack = UIStackView()
+            horizontalStack.axis = .horizontal
+            horizontalStack.alignment = .fill
+            horizontalStack.distribution = .equalCentering;
+            horizontalStack.alignment = .center;
+            horizontalStack.spacing = 30;
+            var wordStack : [UILabel] = []
+            for _ in words{
+                let label = UILabel()
+                label.text = "_"
+                label.font = label.font.withSize(40)
+                horizontalStack.addArrangedSubview(label)
+                wordStack.append(label)
+            }
+            wordArray.append(wordStack)
+            hintStack.addArrangedSubview(horizontalStack)
+        }
 
+    }
     
     /*
     // MARK: - Navigation
