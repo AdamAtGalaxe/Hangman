@@ -10,7 +10,8 @@ import UIKit
 class GameViewController: UIViewController {
     var wrongGuesses : Int = 0
     let solution : [String] = ["HARRY", "S", "TRUMAN"]
-
+    var myTimer: Timer? = nil
+    
     @IBOutlet weak var hangmanImage: UIImageView!
     @IBOutlet var alphabet: [UILabel]!
     @IBOutlet var firstWord: [UILabel]!
@@ -71,21 +72,24 @@ class GameViewController: UIViewController {
             print(wrongGuesses)
         }
         if wrongGuesses == 7{
-            fail()
+            myTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fail), userInfo: nil, repeats: true)
+            //fail()
         }
         
     }
-    func fail(){
+    @objc func fail(){
         print("here")
         for (count, word) in solution.enumerated(){
             for (index, letters) in word.enumerated(){
                 if(wordArray[count][index].text == "_"){
                     wordArray[count][index].text = String(letters)
-                    //sleep(1)
+                    return
                 }
             }
         }
+        myTimer?.invalidate()
     }
+
     
     /*
     // MARK: - Navigation

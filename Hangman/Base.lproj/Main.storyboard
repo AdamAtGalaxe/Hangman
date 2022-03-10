@@ -324,6 +324,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="hangmanImage" destination="jCd-hC-Occ" id="jcv-m3-l74"/>
                         <outletCollection property="alphabet" destination="nBh-dd-poF" collectionClass="NSMutableArray" id="3Ln-fX-7Y5"/>
                         <outletCollection property="alphabet" destination="RQq-BU-xjp" collectionClass="NSMutableArray" id="ygu-LP-wuL"/>
                         <outletCollection property="alphabet" destination="g6P-fX-Nda" collectionClass="NSMutableArray" id="34e-Ww-kK1"/>
@@ -350,6 +351,18 @@
                         <outletCollection property="alphabet" destination="AVU-eE-tA4" collectionClass="NSMutableArray" id="69D-AI-0Nw"/>
                         <outletCollection property="alphabet" destination="Hmr-wt-S3g" collectionClass="NSMutableArray" id="2i3-C3-9De"/>
                         <outletCollection property="alphabet" destination="joP-fC-24h" collectionClass="NSMutableArray" id="gsg-Ub-LAE"/>
+                        <outletCollection property="firstWord" destination="i8T-Sx-BH2" collectionClass="NSMutableArray" id="ULW-OW-h0k"/>
+                        <outletCollection property="firstWord" destination="gi9-pS-lFv" collectionClass="NSMutableArray" id="5D3-a1-Tox"/>
+                        <outletCollection property="firstWord" destination="wkp-q1-Rax" collectionClass="NSMutableArray" id="RDS-4d-UhZ"/>
+                        <outletCollection property="firstWord" destination="oAe-Zd-UJm" collectionClass="NSMutableArray" id="tQq-LT-LkI"/>
+                        <outletCollection property="firstWord" destination="o09-dE-hEd" collectionClass="NSMutableArray" id="ufl-W4-HNI"/>
+                        <outletCollection property="secondWord" destination="4co-9Y-DCe" collectionClass="NSMutableArray" id="ARG-uK-Ruy"/>
+                        <outletCollection property="thirdWord" destination="Nob-4P-Js1" collectionClass="NSMutableArray" id="RpW-3e-EhM"/>
+                        <outletCollection property="thirdWord" destination="4NQ-BA-ZbE" collectionClass="NSMutableArray" id="eZy-6O-5Bo"/>
+                        <outletCollection property="thirdWord" destination="WvT-os-8qY" collectionClass="NSMutableArray" id="EYY-0W-1is"/>
+                        <outletCollection property="thirdWord" destination="5Lx-f7-I83" collectionClass="NSMutableArray" id="uZC-zP-X0d"/>
+                        <outletCollection property="thirdWord" destination="Y8G-ef-qQJ" collectionClass="NSMutableArray" id="5Ih-BF-XN8"/>
+                        <outletCollection property="thirdWord" destination="BCU-BC-GsK" collectionClass="NSMutableArray" id="6Mq-r1-fp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
