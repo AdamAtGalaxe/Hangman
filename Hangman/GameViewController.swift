@@ -9,24 +9,29 @@ import UIKit
 
 class GameViewController: UIViewController {
     var wrongGuesses : Int = 0
-    let solution = Solutions.select("usPresidents")
+    var topic : String?
+    var solution : [String]?
     var myTimer: Timer? = nil
     var letterCount : Int = 0
+
     
     @IBOutlet weak var hangmanImage: UIImageView!
     @IBOutlet var alphabet: [UILabel]!
     @IBOutlet weak var hintStack: UIStackView!
+    @IBOutlet weak var keyboard: UIStackView!
     
-
     var wordArray: [ [UILabel] ] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        solution = Solutions.select(topic!)
+        print("Solution: \(solution)")
         createHint()
 
         setupLabelTap()
         print("hello")
-        
+        //win()
+        //playAgain()
     // Do any additional setup after loading the view.
         
     }
@@ -56,7 +61,7 @@ class GameViewController: UIViewController {
             return
         }
         else {
-            for (index, word) in solution.enumerated(){
+            for (index, word) in solution!.enumerated(){
                 let test = word.locations(letter)
                 if test != []{
                     correct = true
@@ -86,7 +91,7 @@ class GameViewController: UIViewController {
         
     }
     @objc func fail(){
-        for (count, word) in solution.enumerated(){
+        for (count, word) in solution!.enumerated(){
             for (index, letters) in word.enumerated(){
                 if(wordArray[count][index].text == "_"){
                     wordArray[count][index].text = String(letters)
@@ -96,21 +101,23 @@ class GameViewController: UIViewController {
         }
         hangmanImage.image = UIImage(named: "loser")
         myTimer?.invalidate()
+        playAgain()
     }
     func win(){
         alphabet.forEach{
             $0.removeFromSuperview()
         }
         hangmanImage.image = UIImage(named: "winner")
+        playAgain()
     }
     func createHint(){
-        for words in solution{
+        for words in solution!{
             let horizontalStack = UIStackView()
             horizontalStack.axis = .horizontal
-            horizontalStack.alignment = .fill
+            horizontalStack.alignment = .center
             horizontalStack.distribution = .equalCentering;
             horizontalStack.alignment = .center;
-            horizontalStack.spacing = 30;
+            horizontalStack.spacing = 20;
             var wordStack : [UILabel] = []
             for _ in words{
                 letterCount += 1
@@ -127,26 +134,44 @@ class GameViewController: UIViewController {
     }
     func playAgain(){
         let yes = UIButton()
-        yes.frame = CGRect(x: self.view.frame.size.width - 60, y: 60, width: 50, height: 50)
+        yes.frame = CGRect(x: self.view.frame.size.width - 60, y: 60, width: 100, height: 50)
         yes.backgroundColor = UIColor.green
         yes.setTitle("Yes", for: .normal)
         yes.addTarget(self, action: #selector(restart), for: .touchUpInside)
         
         let no = UIButton()
-        no.frame = CGRect(x: self.view.frame.size.width - 60, y: 60, width: 50, height: 50)
-        no.backgroundColor = UIColor.green
+        no.frame = CGRect(x: self.view.frame.size.width - 60, y: 60, width: 100, height: 20)
+        no.backgroundColor = UIColor.red
         no.setTitle("No", for: .normal)
         no.addTarget(self, action: #selector(quit), for: .touchUpInside)
         
         let horizontalStack = UIStackView()
         horizontalStack.axis = .horizontal
         horizontalStack.alignment = .fill
-        horizontalStack.distribution = .equalCentering;
+        horizontalStack.distribution = .fillEqually;
         horizontalStack.alignment = .center;
-        horizontalStack.spacing = 30;
+        horizontalStack.spacing = 10;
         horizontalStack.addArrangedSubview(yes)
         horizontalStack.addArrangedSubview(no)
+        
+        let label = UILabel()
+        label.text = "Play Again?"
+        label.font = label.font.withSize(40)
+        label.textAlignment = .center
+        horizontalStack.addArrangedSubview(label)
+        
+        let horizontalStack2 = UIStackView()
+        horizontalStack2.axis = .horizontal
+        horizontalStack2.alignment = .fill
+        horizontalStack2.distribution = .fillEqually;
+        horizontalStack2.alignment = .center;
+        horizontalStack2.spacing = 10;
+        horizontalStack2.addArrangedSubview(yes)
+        horizontalStack2.addArrangedSubview(no)
+        //keyboard.alignment = .fill
 
+        keyboard.addArrangedSubview(label)
+        keyboard.addArrangedSubview(horizontalStack2)
         
     }
     @objc func restart(sender: UIButton!) {
