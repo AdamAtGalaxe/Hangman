@@ -24,23 +24,22 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [#colorLiteral(red: 0.1529411765, green: 0.6666666667, blue: 0.8823529412, alpha: 1).cgColor, #colorLiteral(red: 0.06274509804, green: 0.4470588235, blue: 0.7294117647, alpha: 1).cgColor]
+        gradientLayer.shouldRasterize = true
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
         solution = Solutions.select(topic!)
-        print("Solution: \(solution)")
         createHint()
 
         setupLabelTap()
-        print("hello")
-        //win()
-        //playAgain()
-    // Do any additional setup after loading the view.
         
     }
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         let myLabel = sender.view as? UILabel
         let id = myLabel!.text!.character(at: 0)
-        //sender.view.text = " "
-        //var myLabel = sender.view as? UILab
+
         myLabel!.text = " "
         guess(id!)
     }
@@ -81,9 +80,7 @@ class GameViewController: UIViewController {
             alphabet.forEach{
                 $0.removeFromSuperview()
             }
-            //hangmanImage.image = UIImage(named: "loser")
             myTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(fail), userInfo: nil, repeats: true)
-            //fail()
         }
         if letterCount == 0{
             win()
@@ -168,7 +165,6 @@ class GameViewController: UIViewController {
         horizontalStack2.spacing = 10;
         horizontalStack2.addArrangedSubview(yes)
         horizontalStack2.addArrangedSubview(no)
-        //keyboard.alignment = .fill
 
         keyboard.addArrangedSubview(label)
         keyboard.addArrangedSubview(horizontalStack2)

@@ -18,7 +18,6 @@ class Solutions{
     
     
     class func select(_ myString: String) ->[String]{
-        print("made selection with \(SELECTION)")
         switch myString{
         case "usPresidents":
             let mySelection = usPresidents[Int.random(in: 0..<usPresidents.count)].uppercased()

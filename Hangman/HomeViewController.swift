@@ -16,14 +16,31 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        animation.image  = UIImage.gif(name: "suicide")
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [#colorLiteral(red: 0.1529411765, green: 0.6666666667, blue: 0.8823529412, alpha: 1).cgColor, #colorLiteral(red: 0.06274509804, green: 0.4470588235, blue: 0.7294117647, alpha: 1).cgColor]
+        gradientLayer.shouldRasterize = true
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        var frames = [UIImage]()
+        var frame: UIImage
+
+
+        for index in 0..<23 {
+            frame = UIImage(named: "frame_\(index)")!
+            for _ in 0..<24 {
+                frames.append(frame)
+            }
+        }
+        animation.image = UIImage.animatedImage(with: frames, duration: 5.5)
         myTimer = Timer.scheduledTimer(timeInterval: 5.5, target: self, selector: #selector(load), userInfo: nil, repeats: false) //5.5
-        //animation.startAnimating()
-        // Do any additional setup after loading the view.
+
     }
     
     @objc func load(){
         //var title : [UILabel] = []
+
+        
         animation.removeFromSuperview()
         let horizontalStack = UIStackView()
         horizontalStack.axis = .horizontal

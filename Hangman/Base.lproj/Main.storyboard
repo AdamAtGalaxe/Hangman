@@ -36,6 +36,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Play a game">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                            <color key="baseForegroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="1" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                            <color key="baseBackgroundColor" red="0.039215686270000001" green="0.28235294119999998" blue="0.61176470589999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="Kfr-D3-Lrn" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="wzN-22-ZPM"/>
@@ -46,6 +48,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Quit">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                            <color key="baseForegroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="1" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                            <color key="baseBackgroundColor" red="0.039215686270000001" green="0.28235294119999998" blue="0.61176470589999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -99,6 +103,8 @@
                                 </constraints>
                                 <buttonConfiguration key="configuration" style="tinted" title="US Presidents">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" red="0.039215686270000001" green="0.28235294119999998" blue="0.61176470589999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="setTopic:" destination="Kfr-D3-Lrn" eventType="touchUpInside" id="EzF-Sz-p0N"/>
@@ -113,6 +119,8 @@
                                 </constraints>
                                 <buttonConfiguration key="configuration" style="tinted" title="Rock Bands">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                    <color key="baseForegroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.98227768459999998" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.039215686270000001" green="0.28235294119999998" blue="0.6113079897" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="setTopic:" destination="Kfr-D3-Lrn" eventType="touchUpInside" id="2Wg-0T-53A"/>
@@ -127,6 +135,8 @@
                                 </constraints>
                                 <buttonConfiguration key="configuration" style="tinted" title="Composers">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                    <color key="baseForegroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="1" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.039215686270000001" green="0.28235294119999998" blue="0.6113079897" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="setTopic:" destination="Kfr-D3-Lrn" eventType="touchUpInside" id="UYO-4Q-bS9"/>
@@ -141,6 +151,8 @@
                                 </constraints>
                                 <buttonConfiguration key="configuration" style="tinted" title="US Cities">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                    <color key="baseForegroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="1" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.039215686270000001" green="0.28235294119999998" blue="0.6113079897" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="setTopic:" destination="Kfr-D3-Lrn" eventType="touchUpInside" id="QXZ-gn-zhX"/>
@@ -443,6 +455,9 @@
         <segue reference="ZLc-1B-0JM"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

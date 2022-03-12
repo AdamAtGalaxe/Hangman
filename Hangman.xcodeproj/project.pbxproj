@@ -9,11 +9,8 @@
 /* Begin PBXBuildFile section */
 		6699189A27D6B91300F9C370 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6699189927D6B91300F9C370 /* StringExtension.swift */; };
 		6699189E27DAA52C00F9C370 /* Solutions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6699189D27DAA52C00F9C370 /* Solutions.swift */; };
-		669918A227DBB23E00F9C370 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669918A127DBB23E00F9C370 /* ImageViewExtension.swift */; };
 		669918A427DBB70000F9C370 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669918A327DBB70000F9C370 /* HomeViewController.swift */; };
-		669918A827DBC1A300F9C370 /* suicide.gif in Resources */ = {isa = PBXBuildFile; fileRef = 669918A727DBC1A300F9C370 /* suicide.gif */; };
 		669918AB27DBDF2D00F9C370 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669918AA27DBDF2D00F9C370 /* TopicViewController.swift */; };
-		669918AD27DBE0C700F9C370 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669918AC27DBE0C700F9C370 /* Constants.swift */; };
 		66C40B9E27B19D1A003D7B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C40B9D27B19D1A003D7B67 /* AppDelegate.swift */; };
 		66C40BA027B19D1A003D7B67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C40B9F27B19D1A003D7B67 /* SceneDelegate.swift */; };
 		66C40BA527B19D1A003D7B67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66C40BA327B19D1A003D7B67 /* Main.storyboard */; };
@@ -45,11 +42,8 @@
 /* Begin PBXFileReference section */
 		6699189927D6B91300F9C370 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		6699189D27DAA52C00F9C370 /* Solutions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solutions.swift; sourceTree = "<group>"; };
-		669918A127DBB23E00F9C370 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		669918A327DBB70000F9C370 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		669918A727DBC1A300F9C370 /* suicide.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = suicide.gif; sourceTree = "<group>"; };
 		669918AA27DBDF2D00F9C370 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
-		669918AC27DBE0C700F9C370 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		66C40B9A27B19D1A003D7B67 /* Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C40B9D27B19D1A003D7B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66C40B9F27B19D1A003D7B67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,10 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				6699189D27DAA52C00F9C370 /* Solutions.swift */,
-				669918A127DBB23E00F9C370 /* ImageViewExtension.swift */,
 				6699189927D6B91300F9C370 /* StringExtension.swift */,
-				669918A727DBC1A300F9C370 /* suicide.gif */,
-				669918AC27DBE0C700F9C370 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -261,7 +252,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				66C40BAA27B19D1A003D7B67 /* LaunchScreen.storyboard in Resources */,
-				669918A827DBC1A300F9C370 /* suicide.gif in Resources */,
 				66C40BA727B19D1A003D7B67 /* Assets.xcassets in Resources */,
 				66C40BA527B19D1A003D7B67 /* Main.storyboard in Resources */,
 			);
@@ -289,14 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				66C40BCE27B1CF78003D7B67 /* GameViewController.swift in Sources */,
-				669918A227DBB23E00F9C370 /* ImageViewExtension.swift in Sources */,
 				669918AB27DBDF2D00F9C370 /* TopicViewController.swift in Sources */,
 				669918A427DBB70000F9C370 /* HomeViewController.swift in Sources */,
 				6699189E27DAA52C00F9C370 /* Solutions.swift in Sources */,
 				6699189A27D6B91300F9C370 /* StringExtension.swift in Sources */,
 				66C40B9E27B19D1A003D7B67 /* AppDelegate.swift in Sources */,
 				66C40BA027B19D1A003D7B67 /* SceneDelegate.swift in Sources */,
-				669918AD27DBE0C700F9C370 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
