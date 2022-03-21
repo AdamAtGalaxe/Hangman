@@ -39,8 +39,13 @@ class HomeViewController: UIViewController {
     
     @objc func load(){
         //var title : [UILabel] = []
+        var myGuy = UIImage(named: "final")
+        myGuy = resizeImage(image: myGuy!, newHeight: myStack.frame.height)
 
+        let finished = UIImageView(image: myGuy)
+        //finished.contentMode = UIView.ContentMode.scaleAspectFill;
         
+        //finished.layer.masksToBounds = YES;
         animation.removeFromSuperview()
         let horizontalStack = UIStackView()
         horizontalStack.axis = .horizontal
@@ -48,7 +53,7 @@ class HomeViewController: UIViewController {
         horizontalStack.distribution = .equalSpacing;
         horizontalStack.alignment = .center;
         horizontalStack.spacing = 10;
-        horizontalStack.addArrangedSubview(UIImageView(image: UIImage(named: "final")))
+        horizontalStack.addArrangedSubview(finished)
         for _ in 0...6{
             let label = UILabel()
             label.text = "_"
@@ -70,8 +75,17 @@ class HomeViewController: UIViewController {
         myTimer = nil
         return
     }
+    private func resizeImage(image: UIImage, newHeight: CGFloat) -> UIImage {
+        
+        let scale = newHeight / image.size.height
+        let newWidth = image.size.width * scale
+        UIGraphicsBeginImageContext(CGSize(width:newWidth, height:newHeight))
+        image.draw(in:CGRect(x:0, y:0, width:newWidth, height:newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
 
-    /*
+        return newImage!
+    }    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

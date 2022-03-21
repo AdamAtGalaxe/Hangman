@@ -9,6 +9,9 @@ import UIKit
 
 class TopicViewController: UIViewController {
     var selectedTopic : String?
+    
+    @IBOutlet var myButtons : [UIButton]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let gradientLayer = CAGradientLayer()
@@ -16,6 +19,11 @@ class TopicViewController: UIViewController {
         gradientLayer.colors = [#colorLiteral(red: 0.1529411765, green: 0.6666666667, blue: 0.8823529412, alpha: 1).cgColor, #colorLiteral(red: 0.06274509804, green: 0.4470588235, blue: 0.7294117647, alpha: 1).cgColor]
         gradientLayer.shouldRasterize = true
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        for button in myButtons{
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            //button.titleLabel?.minimumScaleFactor = 0.5
+        }
 
         // Do any additional setup after loading the view.
     }
